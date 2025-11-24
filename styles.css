@@ -407,3 +407,146 @@ body {
         font-size: 1.5rem;
     }
 }
+/* footer */
+
+.site-footer {
+    border-top: 1px solid var(--border);
+    background: #ffffff;
+}
+
+.footer-inner {
+    padding-top: 1.8rem;
+    padding-bottom: 1.8rem;
+}
+
+/* pay with row */
+
+.paywith-row {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+.paywith-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+.paywith-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    flex: 1 1 auto;
+}
+
+.paywith-logos img {
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    padding: 2px;
+    background: #fff;
+}
+
+.paywith-secured {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+.paywith-secured img {
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background: #fff;
+}
+
+/* social icons */
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 1.4rem;
+    margin-bottom: 1.4rem;
+}
+
+.footer-social a {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.footer-social a:hover {
+    background: var(--dark);
+    color: #ffffff;
+}
+
+/* links with separators */
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+}
+
+.footer-links a {
+    font-size: 0.86rem;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
+.footer-links .sep {
+    color: #b5b5b5;
+    font-size: 0.86rem;
+}
+
+/* copyright */
+
+.footer-copy {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+/* responsive footer tweaks */
+
+@media (max-width: 768px) {
+    .paywith-row {
+        align-items: flex-start;
+    }
+
+    .paywith-secured {
+        justify-content: flex-start;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .footer-links .sep {
+        display: none;
+    }
+}
