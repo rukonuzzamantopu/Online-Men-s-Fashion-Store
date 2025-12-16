@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Polo — Men's Fashion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container topbar">
+            <div class="logo">Men's Fashion</div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="flash-sale.html">Flash Sale</a>
+                <a href="best-seller.html">Best Seller</a>
+                <a href="bulk-order.html">Bulk Order</a>
+                <a href="login.html">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Polo</h1>
+            <p>Our selection of polo shirts — smart, casual, and breathable.</p>
+        </section>
+
+        <section id="products" class="grid"></section>
+    </main>
+
+    <footer>
+        <div class="container">© 2025 Men's Fashion</div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // show only polo items (shirts with 'Polo' in name or category 'shirts')
+        const poloList = products.filter(p => p.category === 'shirts' && /polo/i.test(p.name));
+        render(poloList);
+    </script>
+</body>
+</html>

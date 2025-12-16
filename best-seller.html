@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Best Seller — Men's Fashion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+    <header>
+        <div class="container topbar">
+            <div class="logo">Men's Fashion</div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="flash-sale.html">Flash Sale</a>
+                <a href="polo.html">Polo</a>
+                <a href="bulk-order.html">Bulk Order</a>
+                <a href="login.html">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Best Seller</h1>
+            <p>Top selling items — tried, tested, and loved by customers.</p>
+        </section>
+
+        <section id="products" class="grid"></section>
+    </main>
+
+    <footer>
+        <div class="container">© 2025 Men's Fashion</div>
+    </footer>
+
+    <script>
+      // small nav helper (avoid relying on external script)
+      (function(){
+        const headerInner = document.querySelector('.container.topbar');
+        const toggleBtn = document.querySelector('.nav-toggle');
+        if(toggleBtn && headerInner) toggleBtn.addEventListener('click', ()=> headerInner.classList.toggle('nav-open'));
+      })();
+
+      // If `products` and `render` exist (from products.js), use them; otherwise page is static
+      if(typeof products !== 'undefined' && typeof render === 'function'){
+          const best = products.slice().sort((a,b)=>b.price-a.price).slice(0,6);
+          render(best);
+      }
+    </script>
+</body>
+</html>

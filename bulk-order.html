@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bulk Order — Men's Fashion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container topbar">
+            <div class="logo">Men's Fashion</div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="flash-sale.html">Flash Sale</a>
+                <a href="polo.html">Polo</a>
+                <a href="best-seller.html">Best Seller</a>
+                <a href="login.html">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Bulk Order</h1>
+            <p>Upload a CSV or paste SKUs to place a bulk order request. We'll contact you with pricing.</p>
+        </section>
+
+        <section style="max-width:760px;margin:20px auto;background:#fff;padding:20px;border-radius:8px;border:1px solid #eef2fb">
+            <form id="bulkForm">
+                <div style="margin-bottom:12px">
+                    <label for="company">Company / Name</label>
+                    <input id="company" type="text" required placeholder="Company or buyer name" style="width:100%;padding:10px;margin-top:6px;border:1px solid #dbe1ee;border-radius:6px" />
+                </div>
+                <div style="margin-bottom:12px">
+                    <label for="items">Items (paste SKUs or product names, one per line)</label>
+                    <textarea id="items" rows="6" placeholder="SKU123, 2\nSKU456, 5" style="width:100%;padding:10px;margin-top:6px;border:1px solid #dbe1ee;border-radius:6px"></textarea>
+                </div>
+                <div style="margin-bottom:12px">
+                    <label for="file">Or upload CSV</label>
+                    <input id="file" type="file" accept=".csv" />
+                </div>
+                <div style="display:flex;gap:8px;align-items:center">
+                    <button class="btn" type="submit">Submit Request</button>
+                    <div id="bulkStatus" style="color:var(--muted);margin-left:12px"></div>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">© 2025 Men's Fashion</div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="bulk-order.js" defer></script>
+</body>
+</html>

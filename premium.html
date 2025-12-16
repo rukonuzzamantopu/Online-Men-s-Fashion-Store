@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Premium — Men's Fashion</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="main-header__inner wrapper">
+      <div class="logo">Topu</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="new-in.html">New In</a>
+        <a href="best-seller.html">Best Seller</a>
+        <a href="premium.html" class="active">Premium</a>
+        <a href="flash-sale.html">Flash Sale</a>
+        <a href="bulk-order.html">Bulk Order</a>
+        <a href="login.html">Login</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <section class="page-hero page-hero--premium">
+      <h1>Premium</h1>
+      <p>Our premium collection — elevated fabrics and limited runs.</p>
+    </section>
+
+    <section class="products-grid">
+      <article class="product-card">
+        <div class="product-image"><img src="image/one-pc-1-1536x1536.webp" alt="Leather Coach Jacket"></div>
+        <h2 class="product-title">Leather Coach Jacket (Premium)</h2>
+        <div class="price-row"><span class="new-price">৳249</span></div>
+        <div class="sizes"><button class="size-btn">M</button><button class="size-btn">L</button></div>
+        <button class="primary-btn">Select options</button>
+      </article>
+
+      <article class="product-card">
+        <div class="product-image"><img src="image/CP.webp" alt="Oxford Shirt Premium"></div>
+        <h2 class="product-title">Oxford Shirt (Premium)</h2>
+        <div class="price-row"><span class="new-price">৳129</span></div>
+        <div class="sizes"><button class="size-btn">M</button><button class="size-btn">L</button></div>
+        <button class="primary-btn">Select options</button>
+      </article>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrapper footer-inner"><div class="footer-copy">© 2025 Men's Fashion</div></div>
+  </footer>
+
+  <script>
+    (function(){
+      const headerInner = document.querySelector('.main-header__inner');
+      const toggleBtn = document.querySelector('.nav-toggle');
+      if(toggleBtn && headerInner) toggleBtn.addEventListener('click', ()=> headerInner.classList.toggle('nav-open'));
+    })();
+  </script>
+</body>
+</html>

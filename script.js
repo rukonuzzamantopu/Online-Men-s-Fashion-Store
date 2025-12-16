@@ -45,32 +45,3 @@ document.querySelectorAll(".tab").forEach((tab) => {
         tab.classList.add("active");
     });
 });
-
-
-    // track ordeer
-
-    const trackOrderBtn = document.getElementById("trackOrderBtn");
-
-trackOrderBtn.addEventListener("click", function() {
-    const orderId = document.getElementById("orderId").value.trim();
-    const phoneNumber = document.getElementById("phoneNumber").value.trim();
-
-    if (!orderId || !phoneNumber) {
-        alert("Please enter both Order ID and Phone Number.");
-        return;
-    }
-
-    // Simulate an order status check (this can later be replaced by an API call)
-    const statusArea = document.querySelector(".order-status");
-    const complainArea = document.querySelector(".complain");
-
-    // Show the order status area after submission
-    statusArea.style.display = "block";
-    complainArea.style.display = "block";
-
-    // Simulate order status
-    const statusMessage = `Your order ${orderId} is in processing stage. Please wait while we verify your order details.`;
-    alert(statusMessage);
-
-    // You can replace the above alert with the actual order status fetched from a backend.
-});

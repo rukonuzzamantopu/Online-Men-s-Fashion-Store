@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>New In — Men's Fashion</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="main-header__inner wrapper">
+      <div class="logo">Topu</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="new-in.html" class="active">New In</a>
+        <a href="best-seller.html">Best Seller</a>
+        <a href="premium.html">Premium</a>
+        <a href="flash-sale.html">Flash Sale</a>
+        <a href="bulk-order.html">Bulk Order</a>
+        <a href="login.html">Login</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown__btn">Store ▾</button>
+          <div class="nav-dropdown__menu">
+            <a href="#">T Shirt</a>
+            <a href="#">Winter Collection</a>
+            <a href="#">Accessories</a>
+          </div>
+        </div>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <section class="page-hero page-hero--new">
+      <h1>New In</h1>
+      <p>Latest arrivals — fresh styles added this week.</p>
+    </section>
+
+    <section class="products-grid">
+      <!-- reuse same markup as index, but trimmed for brevity -->
+      <article class="product-card">
+        <div class="product-image">
+          <span class="product-badge">NEW</span>
+          <img src="image/CP.webp" alt="Drop Shoulder T-Shirt Unstoppable">
+        </div>
+        <h2 class="product-title">Drop Shoulder T-Shirt (Unstoppable)</h2>
+        <div class="price-row"><span class="new-price">৳399</span></div>
+        <div class="sizes"><button class="size-btn">M</button><button class="size-btn">L</button></div>
+        <button class="primary-btn">Select options</button>
+      </article>
+
+      <article class="product-card">
+        <div class="product-image">
+          <span class="product-badge">NEW</span>
+          <img src="image/Chasing-Dreams.webp" alt="Drop Shoulder T-Shirt Ekush">
+        </div>
+        <h2 class="product-title">Drop Shoulder T-Shirt (Ekush)</h2>
+        <div class="price-row"><span class="new-price">৳399</span></div>
+        <div class="sizes"><button class="size-btn">M</button><button class="size-btn">L</button></div>
+        <button class="primary-btn">Select options</button>
+      </article>
+
+      <article class="product-card">
+        <div class="product-image">
+          <span class="product-badge">NEW</span>
+          <img src="image/one-pc-1-1536x1536.webp" alt="Premium Drop Shoulder Leaf 02">
+        </div>
+        <h2 class="product-title">Premium Drop Shoulder T-Shirt (Leaf 02)</h2>
+        <div class="price-row"><span class="new-price">৳580</span></div>
+        <div class="sizes"><button class="size-btn">M</button><button class="size-btn">L</button></div>
+        <button class="primary-btn">Select options</button>
+      </article>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrapper footer-inner">
+      <div class="footer-copy">© 2025 Men's Fashion</div>
+    </div>
+  </footer>
+
+  <script>
+    // small nav + dropdown helper (self-contained so pages don't need script.js)
+    (function(){
+      const headerInner = document.querySelector('.main-header__inner');
+      const toggleBtn = document.querySelector('.nav-toggle');
+      if(toggleBtn && headerInner) toggleBtn.addEventListener('click', ()=> headerInner.classList.toggle('nav-open'));
+
+      const dBtn = document.querySelector('.nav-dropdown__btn');
+      const dMenu = document.querySelector('.nav-dropdown__menu');
+      if(dBtn && dMenu){
+        dBtn.addEventListener('click', (e)=>{e.stopPropagation(); dMenu.style.display = dMenu.style.display === 'block' ? 'none' : 'block';});
+        document.addEventListener('click', ()=> dMenu.style.display = 'none');
+      }
+    })();
+  </script>
+</body>
+</html>

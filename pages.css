@@ -1,0 +1,25 @@
+/* pages.css — small page-specific styles (hero variants, spacing tweaks) */
+
+.page-hero {
+    background: linear-gradient(90deg, rgba(245,180,0,0.06), transparent);
+    padding: 28px 0;
+    margin-bottom: 12px;
+}
+
+.page-hero h1{ margin:0; font-size:1.8rem; }
+.page-hero p{ color: var(--muted); margin-top:6px }
+
+.page-hero--best{ background: linear-gradient(90deg, rgba(255,45,45,0.04), transparent); }
+.page-hero--premium{ background: linear-gradient(90deg, rgba(31,111,235,0.06), transparent); }
+.page-hero--new{ background: linear-gradient(90deg, rgba(0,160,90,0.04), transparent); }
+
+/* small grid spacing override for pages */
+.products-grid{ margin-top: 0.8rem; }
+
+/* ensure product titles wrap nicely */
+.product-title{ white-space: normal; }
+
+/* make hero centered on narrow screens */
+@media (max-width: 640px){
+    .page-hero{ text-align: left; padding-left: 0; }
+}
