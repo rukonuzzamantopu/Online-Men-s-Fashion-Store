@@ -45,3 +45,21 @@ document.querySelectorAll(".tab").forEach((tab) => {
         tab.classList.add("active");
     });
 });
+
+
+// login page scripts
+
+// Password Toggle Functionality
+function togglePassword() {
+    const passwordField = document.getElementById("password");
+    const type = passwordField.type === "password" ? "text" : "password";
+    passwordField.type = type;
+}
+
+// Toggle between Login and Register Forms (optional)
+const toggleFormBtn = document.querySelector(".forgot-password a");
+toggleFormBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    const formContainer = document.querySelector(".auth-form-container");
+    formContainer.classList.toggle("active");
+});
