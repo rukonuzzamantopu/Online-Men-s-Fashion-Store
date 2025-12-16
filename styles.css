@@ -1161,3 +1161,49 @@ h2 {
     width: 100px; /* Adjust to fit your SSL logo size */
     height: auto;
 }
+
+
+/* ===== Cookie Banner (added) ===== */
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+.cookie-banner {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  z-index: 2000;
+  background: #fff;
+  border-top: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 -0.5rem 1rem rgba(0,0,0,.06);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform .35s ease, opacity .35s ease;
+  padding: 1.25rem 0;
+}
+.cookie-banner.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+.cookie-inner {
+  padding: 0 9%;
+  display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+  justify-content: space-between;
+}
+.cookie-text {
+  color: var(--main-color);
+  font-size: 1.5rem; line-height: 1.6;
+  flex: 1 1 48rem;
+  margin: 0;
+}
+.cookie-link {
+  color: var(--main-color);
+  text-decoration: underline;
+}
+.cookie-actions { display: flex; gap: 1rem; align-items: center; }
+@media (max-width: 768px) {
+  .cookie-inner { gap: 1.25rem; }
+  .cookie-actions { width: 100%; justify-content: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cookie-banner { transition: none; }
+}
