@@ -1114,3 +1114,50 @@ h2 {
     }
 }
 /* End of login page styles */
+
+
+/* CSS code to display the logos in a neat row with proper alignment and spacing. */
+/* Pay With Section */
+.paywith-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background-color: #f9f9f9;
+}
+
+.paywith-label {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+    margin-right: 20px;
+}
+
+/* Logos for Payment Methods */
+.paywith-logos {
+    display: flex;
+    flex-wrap: wrap; /* Allows logos to wrap if the screen is small */
+    gap: 15px; /* Space between logos */
+    justify-content: center; /* Center align logos */
+    flex: 1;
+}
+
+.paywith-logos img {
+    max-width: 50px; /* Ensures logos are a manageable size */
+    max-height: 50px; /* Adjust this if you need different height/width */
+    object-fit: contain;
+}
+
+/* Verified by Section */
+.paywith-secured {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.875rem;
+    color: #555;
+}
+
+.paywith-secured img {
+    width: 100px; /* Adjust to fit your SSL logo size */
+    height: auto;
+}
