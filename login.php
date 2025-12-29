@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="top-bar__right">
                 <a href=track.html>Track Order</a>
                 <a href="bulk-order.html">Bulk Order</a>
-                <a href="login.html">Login</a>
+                <a href="login.php">Login</a>
             </div>
         </div>
     </div>
