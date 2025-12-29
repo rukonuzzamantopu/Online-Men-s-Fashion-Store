@@ -36,6 +36,49 @@ document.querySelectorAll(".product-card").forEach((card) => {
     });
 });
 
+// Delegated handlers to ensure selection works across pages and dynamic content
+document.addEventListener('click', function(e){
+  var btn = e.target.closest && e.target.closest('.size-btn');
+  if(btn){
+    var sizesRow = btn.closest('.sizes');
+    if(sizesRow){
+      sizesRow.querySelectorAll('.size-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      // store selected size on product-card element for later use
+      var card = btn.closest('.product-card');
+      if(card) card.dataset.selectedSize = btn.textContent.trim();
+    }
+  }
+
+  // handle product-card primary button (select options) to save product and go to product page
+  var pbtn = e.target.closest && e.target.closest('.product-card .primary-btn');
+  if(pbtn){
+    var card = pbtn.closest('.product-card');
+    if(card){
+      var img = card.querySelector('.product-image img');
+      var title = (card.querySelector('.product-title') || {}).textContent || '';
+      var oldPrice = (card.querySelector('.old-price') || {}).textContent || '';
+      var newPrice = (card.querySelector('.new-price') || {}).textContent || '';
+      var sizes = Array.from(card.querySelectorAll('.sizes .size-btn')).map(function(b){ return b.textContent.trim(); });
+      var selectedSize = card.dataset.selectedSize || '';
+      var prod = {
+        id: (card.dataset.productId || ('p_' + (title.replace(/\s+/g,'_').toLowerCase()))),
+        title: title.trim(),
+        image: img ? img.getAttribute('src') : '',
+        alt: img ? img.getAttribute('alt') : '',
+        oldPrice: oldPrice,
+        newPrice: newPrice,
+        sizes: sizes,
+        description: '',
+        selectedSize: selectedSize
+      };
+      try{ localStorage.setItem('selectedProduct', JSON.stringify(prod)); }catch(err){ console.error(err); }
+      window.location.href = 'product.html';
+      e.preventDefault();
+    }
+  }
+});
+
 // tabs just visual (no filtering yet)
 document.querySelectorAll(".tab").forEach((tab) => {
     tab.addEventListener("click", () => {
