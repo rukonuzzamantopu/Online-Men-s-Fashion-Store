@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     ':description' => $details
 ]);
 
-header("Location: success.html");
+header("Location: success.php");
 exit;
 </script>";
 }
