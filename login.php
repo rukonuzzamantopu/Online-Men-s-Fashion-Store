@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <a href="flash-sale.html">Flash Sale</a>
                     <a href="polo.html">Polo</a>
                     <a href="best-seller.html">Best Seller</a>
-                <a href="#">Limited Edition</a>
+                <a href="limited-edition.php">Limited Edition</a>
                 <div class="nav-dropdown">
                     <button class="nav-dropdown__btn">Store ▾</button>
                     <div class="nav-dropdown__menu">

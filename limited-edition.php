@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>New In Stock</title>
+    <title>Limited Edition</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Optional Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -23,13 +23,13 @@
                 Coupon: <strong>"A50"</strong> above 1999TK
             </div>
             <div class="top-bar__right">
-                <a href=track.html>Track Order</a>
+                <a href="track.html">Track Order</a>
                 <a href="bulk-order.html">Bulk Order</a>
                 <a href="login.php">Login</a>
             </div>
         </div>
     </div>
-    
+
     <!-- Main Navigation -->
     <header class="main-header">
         <div class="main-header__inner">
@@ -60,7 +60,7 @@
    <!-- Category Tabs -->
 <section class="category-tabs wrapper">
     <a href="new-in.html">
-        <button class="tab active">NEW IN</button>
+        <button class="tab">NEW IN</button>
     </a>
     <a href="best-seller.html">
         <button class="tab">Best Seller</button>
@@ -68,12 +68,15 @@
     <a href="premium.html">
         <button class="tab">Premium</button>
     </a>
+    <a href="limited-edition.php">
+        <button class="tab active">Limited Edition</button>
+    </a>
 </section>
 
    <!-- Page Title -->
     <section class="page-header wrapper">
-        <h1>PREMIUM IN STOCK</h1>
-        <p>Fresh drops, limited editions and new arrivals.</p>
+        <h1>EXCLUSIVE LIMITED EDITION</h1>
+        <p>Rare and exclusive designs. Only limited pieces available. Order now before they're gone!</p>
     </section>
 
    <!-- Product Grid -->
@@ -83,14 +86,14 @@
 
                         <article class="product-card">
                 <div class="product-image">
-                    <span class="product-badge">SALE! Half/Drop Available</span>
-                    <img src="image/CP.webp" alt="Drop Shoulder T-Shirt Spy x Family 03">
+                    <span class="product-badge">LIMITED! Only 5 Left</span>
+                    <img src="image/CP.webp" alt="Exclusive Limited Edition T-Shirt 01">  
                 </div>
-                <h2 class="product-title">Drop Shoulder T-Shirt (Spy x Family)</h2>
+                <h2 class="product-title">Exclusive Limited Edition T-Shirt</h2>        
 
                 <div class="price-row">
-                    <span class="old-price">৳550</span>
-                    <span class="new-price">৳399</span>
+                    <span class="old-price">৳699</span>
+                    <span class="new-price">৳549</span>
                 </div>
 
                 <div class="sizes">
@@ -103,20 +106,15 @@
                 <button class="primary-btn">Select options</button>
             </article>
 
-
-
-
-
                         <article class="product-card">
                 <div class="product-image">
-                    <span class="product-badge">SALE! Half/Drop Available</span>
-                    <img src="image/one-pc-1-1536x1536.webp" alt="Drop Shoulder T-Shirt Spy x Family 03">
-                </div>
-                <h2 class="product-title">Drop Shoulder T-Shirt (Spy x Family)</h2>
+                    <span class="product-badge">LIMITED! Only 3 Left</span>
+                    <img src="image/one-pc-1-1536x1536.webp" alt="Designer Graphic Tee Limited">                                                                                             </div>
+                <h2 class="product-title">Designer Graphic Tee</h2>        
 
                 <div class="price-row">
-                    <span class="old-price">৳550</span>
-                    <span class="new-price">৳399</span>
+                    <span class="old-price">৳799</span>
+                    <span class="new-price">৳599</span>
                 </div>
 
                 <div class="sizes">
@@ -129,19 +127,15 @@
                 <button class="primary-btn">Select options</button>
             </article>
 
-
-
-
                         <article class="product-card">
                 <div class="product-image">
-                    <span class="product-badge">SALE! Half/Drop Available</span>
-                    <img src="image/doom-1.webp" alt="Drop Shoulder T-Shirt Spy x Family 03">
-                </div>
-                <h2 class="product-title">Drop Shoulder T-Shirt (Spy x Family)</h2>
+                    <span class="product-badge">LIMITED! Only 4 Left</span>
+                    <img src="image/doom-1.webp" alt="Artist Collaboration Tee">                                                                                                         </div>
+                <h2 class="product-title">Artist Collaboration Tee</h2>        
 
                 <div class="price-row">
-                    <span class="old-price">৳550</span>
-                    <span class="new-price">৳399</span>
+                    <span class="old-price">৳850</span>
+                    <span class="new-price">৳649</span>
                 </div>
 
                 <div class="sizes">
@@ -154,18 +148,16 @@
                 <button class="primary-btn">Select options</button>
             </article>
 
-
-
                         <article class="product-card">
                 <div class="product-image">
-                    <span class="product-badge">SALE! Half/Drop Available</span>
-                    <img src="image/CP.webp" alt="Drop Shoulder T-Shirt Spy x Family 03">
+                    <span class="product-badge">LIMITED! Only 6 Left</span>
+                    <img src="image/CP.webp" alt="Premium Limited Wear">  
                 </div>
-                <h2 class="product-title">Drop Shoulder T-Shirt (Spy x Family)</h2>
+                <h2 class="product-title">Premium Limited Wear</h2>        
 
                 <div class="price-row">
-                    <span class="old-price">৳550</span>
-                    <span class="new-price">৳399</span>
+                    <span class="old-price">৳699</span>
+                    <span class="new-price">৳499</span>
                 </div>
 
                 <div class="sizes">
@@ -178,19 +170,15 @@
                 <button class="primary-btn">Select options</button>
             </article>
 
-
-
-
                         <article class="product-card">
                 <div class="product-image">
-                    <span class="product-badge">SALE! Half/Drop Available</span>
-                    <img src="image/Chasing-Dreams.webp" alt="Drop Shoulder T-Shirt Spy x Family 03">
-                </div>
-                <h2 class="product-title">Drop Shoulder T-Shirt (Spy x Family)</h2>
+                    <span class="product-badge">LIMITED! Only 2 Left</span>
+                    <img src="image/Chasing-Dreams.webp" alt="Vintage Inspired Limited Edition">                                                                                                 </div>
+                <h2 class="product-title">Vintage Inspired Edition</h2>        
 
                 <div class="price-row">
-                    <span class="old-price">৳550</span>
-                    <span class="new-price">৳399</span>
+                    <span class="old-price">৳749</span>
+                    <span class="new-price">৳579</span>
                 </div>
 
                 <div class="sizes">
@@ -203,17 +191,15 @@
                 <button class="primary-btn">Select options</button>
             </article>
 
-
                         <article class="product-card">
                 <div class="product-image">
-                    <span class="product-badge">SALE! Half/Drop Available</span>
-                    <img src="image/Evening-at-the-Mosque-1.webp" alt="Drop Shoulder T-Shirt Spy x Family 03">
-                </div>
-                <h2 class="product-title">Drop Shoulder T-Shirt (Spy x Family)</h2>
+                    <span class="product-badge">LIMITED! Only 7 Left</span>
+                    <img src="image/Evening-at-the-Mosque-1.webp" alt="Seasonal Limited Collection">                                                                                        </div>
+                <h2 class="product-title">Seasonal Limited Collection</h2>        
 
                 <div class="price-row">
-                    <span class="old-price">৳550</span>
-                    <span class="new-price">৳399</span>
+                    <span class="old-price">৳799</span>
+                    <span class="new-price">৳599</span>
                 </div>
 
                 <div class="sizes">
@@ -224,16 +210,13 @@
                 </div>
 
                 <button class="primary-btn">Select options</button>
-            </article> 
+            </article>
          </section>
     </main>
 
-
-
-
  <!-- Floating Cart Button -->
     <button class="cart-fab" aria-label="Cart">
-        🛒
+        ���
     </button>
 
  <footer class="site-footer">
@@ -244,16 +227,14 @@
             <span class="paywith-label">Pay With</span>
 
             <div class="paywith-logos">
-                <!-- use your real icons; these are placeholders -->
                 <img src="image/icons8-visa-card-32.png" alt="Visa">
                 <img src="image/master card_16174534 (1).png" alt="Mastercard">
-                <img src="image/icons8-american-express-32.png" alt="American Express">
+                <img src="image/icons8-american-express-32.png" alt="American Express">    
                 <img src="image/nexus-pay-logo-dbbl-mobile-banking-app-icon-free-png.webp" alt="DBBL Nexus">
                 <img src="image/bkash-logo-png_seeklogo-273684.png" alt="bKash">
                 <img src="image/dutch-bangla-rocket.jpg" alt="Rocket">
                 <img src="image/upay-logo-png_seeklogo-404483.png" alt="UPay">
                 <img src="image/new-logo.7939432.png" alt="Nagad">
-                <!-- add more logos if you want -->
             </div>
 
             <div class="paywith-secured">
@@ -264,31 +245,23 @@
 
       <!-- Social Icons -->
 <div class="footer-social">
-    <!-- Facebook -->
     <a href="https://www.facebook.com/rukonu.zzaman"
        target="_blank" rel="noopener noreferrer">
         <i class="fab fa-facebook-f"></i>
     </a>
-
-    <!-- Instagram -->
     <a href="https://www.instagram.com/rukonu_zzaman/"
        target="_blank" rel="noopener noreferrer">
         <i class="fab fa-instagram"></i>
     </a>
-
-    <!-- WhatsApp (phone in full international format, no +, no 0) -->
     <a href="https://wa.me/8801330885039"
        target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i>
     </a>
-
-    <!-- LinkedIn -->
     <a href="https://www.linkedin.com/in/rukonuzzaman-topu-163582294/"
        target="_blank" rel="noopener noreferrer">
         <i class="fab fa-linkedin-in"></i>
     </a>
 </div>
-
 
         <!-- Footer links with separators -->
         <nav class="footer-links">
@@ -316,7 +289,6 @@
         </p>
     </div>
 </footer>
-
 
     <script src="script.js"></script>
 </body>
