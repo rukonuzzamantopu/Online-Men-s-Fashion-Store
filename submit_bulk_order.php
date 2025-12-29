@@ -28,17 +28,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $stmt = $pdo->prepare($sql);
 
-    $stmt->execute([
-        ':name' => $name,
-        ':email' => $email,
-        ':phone' => $phone,
-        ':company' => $company,
-        ':product_type' => $productType,
-        ':quantity' => $quantity,
-        ':design_file' => $fileName,
-        ':description' => $details
-    ]);
+  $stmt->execute([
+    ':name' => $name,
+    ':email' => $email,
+    ':phone' => $phone,
+    ':company' => $company,
+    ':product_type' => $productType,
+    ':quantity' => $quantity,
+    ':design_file' => $fileName,
+    ':description' => $details
+]);
 
-    echo "<script>alert('Bulk order submitted successfully!'); window.location.href='bulk-order.html';</script>";
+header("Location: success.html");
+exit;
+</script>";
 }
 ?>
