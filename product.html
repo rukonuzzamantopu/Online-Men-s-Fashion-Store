@@ -104,8 +104,22 @@
                         localStorage.setItem('cart', JSON.stringify(cart));
                     }catch(e){ console.error(e); }
                 }
+                // also attempt server save for logged-in users
+                fetch('save_cart.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'same-origin',
+                    body: JSON.stringify({ product_id: toAdd.id, title: toAdd.title, image: toAdd.image, size: toAdd.size, qty: toAdd.qty, price: toAdd.newPrice })
+                }).then(function(res){
+                    if(res.ok) return res.json();
+                    return res.json().catch(function(){ return null; });
+                }).then(function(json){
+                    // ignore errors — localStorage still works for guests
+                }).catch(function(){ /* ignore */ });
+
                 if(window.updateCartCount) updateCartCount();
-                alert('Added "' + prod.title + '" size ' + sel + ' to cart');
+                // after adding, open cart page
+                window.location.href = 'cart.html';
             });
         }
 

@@ -35,14 +35,21 @@
   </footer>
 
   <script>
-    function getCart(){ try{ return JSON.parse(localStorage.getItem('cart')||'[]'); }catch(e){return [];} }
-    function saveCart(c){ localStorage.setItem('cart', JSON.stringify(c)); window.updateCartCount && window.updateCartCount(); render(); }
+    function getCartLocal(){ try{ return JSON.parse(localStorage.getItem('cart')||'[]'); }catch(e){return [];} }
+    function saveCartLocal(c){ localStorage.setItem('cart', JSON.stringify(c)); window.updateCartCount && window.updateCartCount(); renderLocal(c); }
+
+    // Try fetch cart from server for logged-in users, else fallback to localStorage
+    function fetchCartFromServer(){
+      return fetch('get_cart.php', { credentials: 'same-origin' })
+        .then(function(res){ if(res.ok) return res.json(); throw new Error('not-auth'); })
+        .then(function(json){ return json.items || []; })
+        .catch(function(){ return null; });
+    }
 
     function formatPrice(p){ return p || ''; }
 
-    function render(){
+    function renderLocal(cart){
       var list = document.getElementById('cart-list'); list.innerHTML = '';
-      var cart = getCart();
       if(!cart.length){ list.innerHTML = '<p>Your cart is empty.</p>'; document.getElementById('cart-summary').textContent = ''; return; }
 
       cart.forEach(function(item, idx){
@@ -61,9 +68,9 @@
         var inc = document.createElement('button'); inc.textContent='+'; inc.style.padding='6px 10px';
         var rem = document.createElement('button'); rem.textContent='Remove'; rem.style.marginLeft='12px'; rem.style.background='transparent'; rem.style.color='var(--accent)'; rem.style.border='none'; rem.style.cursor='pointer';
 
-        dec.addEventListener('click', function(){ if(item.qty>1){ item.qty--; saveCart(cart); } else { cart.splice(idx,1); saveCart(cart); } });
-        inc.addEventListener('click', function(){ item.qty = (item.qty||0) + 1; saveCart(cart); });
-        rem.addEventListener('click', function(){ cart.splice(idx,1); saveCart(cart); });
+        dec.addEventListener('click', function(){ if(item.qty>1){ item.qty--; saveCartLocal(cart); } else { cart.splice(idx,1); saveCartLocal(cart); } });
+        inc.addEventListener('click', function(){ item.qty = (item.qty||0) + 1; saveCartLocal(cart); });
+        rem.addEventListener('click', function(){ cart.splice(idx,1); saveCartLocal(cart); });
 
         controls.appendChild(dec); controls.appendChild(qty); controls.appendChild(inc); controls.appendChild(rem);
 
@@ -76,7 +83,45 @@
       var summary = document.getElementById('cart-summary'); summary.textContent = 'Items: ' + totalQty;
     }
 
-    document.addEventListener('DOMContentLoaded', function(){ render(); });
+    function renderServer(cart){
+      // server returns items with similar fields; map to local structure
+      var list = document.getElementById('cart-list'); list.innerHTML = '';
+      if(!cart.length){ list.innerHTML = '<p>Your cart is empty.</p>'; document.getElementById('cart-summary').textContent = ''; return; }
+      cart.forEach(function(item, idx){
+        var row = document.createElement('div');
+        row.style.cssText = 'display:flex;gap:12px;align-items:center;padding:12px;border:1px solid var(--border);border-radius:8px;margin-bottom:10px;background:#fff;';
+        var img = document.createElement('img'); img.src = item.image || ''; img.alt = item.title || ''; img.style.width = '96px'; img.style.height = '96px'; img.style.objectFit = 'cover'; img.style.borderRadius = '6px';
+        var info = document.createElement('div'); info.style.flex = '1';
+        var title = document.createElement('div'); title.textContent = item.title + (item.size ? (' — ' + item.size) : ''); title.style.fontWeight = '700';
+        var price = document.createElement('div'); price.textContent = item.price || ''; price.style.color = 'var(--muted)';
+        info.appendChild(title); info.appendChild(price);
+        var controls = document.createElement('div'); controls.style.display='flex'; controls.style.gap='8px'; controls.style.alignItems='center';
+        var dec = document.createElement('button'); dec.textContent='−'; dec.style.padding='6px 10px';
+        var qty = document.createElement('span'); qty.textContent = item.qty || 1; qty.style.minWidth='28px'; qty.style.textAlign='center';
+        var inc = document.createElement('button'); inc.textContent='+'; inc.style.padding='6px 10px';
+        var rem = document.createElement('button'); rem.textContent='Remove'; rem.style.marginLeft='12px'; rem.style.background='transparent'; rem.style.color='var(--accent)'; rem.style.border='none'; rem.style.cursor='pointer';
+        // server-side qty changes/removals would require endpoints; for now show static controls that alert user
+        dec.addEventListener('click', function(){ alert('Change quantity from your account cart in the site dashboard.'); });
+        inc.addEventListener('click', function(){ alert('Change quantity from your account cart in the site dashboard.'); });
+        rem.addEventListener('click', function(){ alert('Remove item from your account cart in the site dashboard.'); });
+        controls.appendChild(dec); controls.appendChild(qty); controls.appendChild(inc); controls.appendChild(rem);
+        row.appendChild(img); row.appendChild(info); row.appendChild(controls);
+        list.appendChild(row);
+      });
+      var totalQty = cart.reduce(function(s,i){return s + (i.qty||0);},0);
+      document.getElementById('cart-summary').textContent = 'Items: ' + totalQty;
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+      fetchCartFromServer().then(function(serverCart){
+        if(serverCart===null){
+          // no server cart (not logged in) -> use local
+          renderLocal(getCartLocal());
+        } else {
+          renderServer(serverCart);
+        }
+      });
+    });
   </script>
 </body>
 </html>
