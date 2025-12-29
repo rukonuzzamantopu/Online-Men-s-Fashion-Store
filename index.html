@@ -2,16 +2,29 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>New In Stock</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Optional Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-6708177318840573">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="main.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 
+'apple-touch-icon-retina.png')}">
+    <title>LOUIS VUITTON - Official International Website</title>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6708177318840573"
+        crossorigin="anonymous"></script>
+
 
 </head>
 
@@ -35,7 +48,7 @@
     <header class="main-header">
         <div class="main-header__inner">
             <div class="logo">
-                UniCloth
+                uniCloth
             </div>
             <nav class="nav-links">
                 <a href="index.html">Home</a>
@@ -57,10 +70,47 @@
             </button>
         </div>
     </header>
+    <section class="videobg" id="video5">
+        <video src="assets/Hero Pages/v6.mp4" type="video/mp4" autoplay loop muted plays-inline class="video"></video>
+        <h2>Men's Fall-Winter 2025</h2>
+       <button><a href="premium.html" class="btn">Discover the Collections</a></button>
 
-   
+    </section>
 
-    
+
+    <section class="imagebg" id="image1">
+        <h2 id="h2-1-imagebg">Taurillon Monogram and</h2>
+        <h2 id="h2-2-imagebg">Monogram Macassar</h2>
+        <button><a href="limited-edition.php" class="btn">Discover the Collections</a></button>
+    </section>
+
+    <section class="videobg" id="video1">
+        <video src="assets/Hero Pages/v1.mp4" type="video/mp4" autoplay loop muted plays-inline class="video"></video>
+        <h2>Luious Vuitton Deep Time</h2>
+        <button><a href="new-in.html" class="btn">Discover the Collections</a></button>
+    </section>
+
+    <section class="videobg" id="video2">
+        <video src="assets/Hero Pages/v2.mp4" type="video/mp4" autoplay loop muted plays-inline class="video"></video>
+        <h2>Zendaya and the Capucines</h2>
+        <button><a href="flash-sale.html" class="btn">Discover the Collections</a></button>
+    </section>
+
+    <section class="videobg" id="video3">
+        <video src="assets/Hero Pages/v3.mp4" type="video/mp4" autoplay loop muted plays-inline class="video"></video>
+        <h2>LV By The Pool</h2>
+        <button><a href="best-seller.html" class="btn">Discover the Collections</a></button>
+    </section>
+
+
+
+    <section class="videobg" id="video4">
+        <video src="assets/Hero Pages/v5.mp4" type="video/mp4" autoplay loop muted plays-inline class="video"></video>
+        <h2>Tambour</h2>
+        <button><a href="premium.html" class="btn">Discover the Collections</a></button>
+    </section>
+
+
 
     <!-- Floating Cart Button -->
     <button class="cart-fab" aria-label="Cart">
@@ -148,23 +198,67 @@
 
     <script src="script.js"></script>
 
-    <!-- Cookie Consent Banner -->
-    <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie consent" aria-live="polite">
-        <div class="cookie-inner">
-            <p class="cookie-text">
-                We use cookies to improve your experience, analyze traffic, and personalize content.
-                See our <a href="privacy.html" class="cookie-link">Privacy & Cookie Policy</a>.
-            </p>
-            <div class="cookie-actions">
-                <button id="cookie-accept" class="btn">Accept</button>
-                <button id="cookie-decline" class="btn" aria-describedby="cookie-decline-note">Decline</button>
-            </div>
-        </div>
-        <span id="cookie-decline-note" class="sr-only">
-            Declining will set a minimal cookie to remember your choice.
-        </span>
-    </div>
 
+
+
+    <script>
+        var lastScrollTop = 0;
+        navbar = document.getElementById("navbar");
+        window.addEventListener("scroll", function () {
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                navbar.style.top = "-100px";
+            } else {
+                navbar.style.top = "0";
+                if (scrollTop === 0) {
+                    navbar.classList.remove("scrolled");
+                } else {
+                    navbar.classList.add("scrolled");
+                }
+            }
+            lastScrollTop = scrollTop;
+        }
+        );
+<button onclick="window.location.href='premium.html'">
+    Discover the Collections
+</button>
+
+
+
+        //Accordian
+
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                var panel = this.nextElementSibling;
+                var isActive = this.classList.contains("active");
+
+                // Close all accordion panels
+
+                for (var j = 0; j < acc.length; j++) {
+                    var otherPanel = acc[j].nextElementSibling;
+                    if (otherPanel !== panel) {
+                        otherPanel.style.maxHeight = null;
+                        acc[j].classList.remove("active");
+                    }
+                }
+
+                if (isActive) {
+                    this.classList.remove("active");
+                    panel.style.maxHeight = null;
+                } else {
+                    this.classList.add("active");
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            }
+            );
+        }
+
+
+    </script>
 </body>
 
 </html>
