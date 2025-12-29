@@ -1174,6 +1174,65 @@ h2 {
     height: auto;
 }
 
+/* Product detail page styles */
+.product-page{
+    padding: 36px 0 64px;
+}
+.back-link{
+    display:inline-block;
+    margin-bottom:16px;
+    color: var(--muted);
+    text-decoration: none;
+}
+.back-link:hover{ color: var(--dark); }
+
+.product-detail{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    background: var(--card, #fff);
+    padding: 22px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 12px 30px rgba(12,18,24,0.06);
+    align-items: start;
+}
+
+.product-detail__media{ display:flex; align-items:center; justify-content:center; }
+.product-detail__media img{
+    width: 100%;
+    max-width: 560px;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+}
+
+.product-detail__info{ display:flex; flex-direction:column; gap:12px; }
+.product-detail__info h1{ font-size:1.5rem; margin-bottom:4px; }
+.product-detail__info .price-row{ margin-top:4px; margin-bottom:6px; }
+.product-detail__info .old-price{ color:var(--muted); }
+.product-detail__info #pd-desc{ color: #444; line-height:1.6; margin-top:6px; }
+
+.product-actions{ display:flex; gap:12px; align-items:center; margin-top:10px; }
+.product-actions select{ padding:10px 12px; border-radius:8px; border:1px solid var(--border); background:#fff; }
+.product-actions .primary-btn, #add-cart{ padding:10px 14px; border-radius:8px; border:none; background:var(--dark); color:#fff; cursor:pointer; }
+.product-actions .primary-btn:hover, #add-cart:hover{ filter:brightness(0.96); }
+
+/* small size buttons display inside detail */
+#pd-sizes{ display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+#pd-sizes .size-btn{ padding:8px 10px; border-radius:6px; border:1px solid var(--border); background:#f7f7f7; cursor:pointer; }
+
+@media (max-width: 900px){
+    .product-detail{ grid-template-columns: 1fr; }
+    .product-detail__media img{ height:320px; }
+}
+
+@media (max-width: 420px){
+    .product-detail__media img{ height:240px; }
+    .product-actions{ flex-direction:column; align-items:stretch; }
+}
+
 
 /* ===== Cookie Banner (added) ===== */
 .sr-only {

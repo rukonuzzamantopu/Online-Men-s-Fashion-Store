@@ -511,6 +511,54 @@
 
     <script src="script.js"></script>
 
+    <script>
+        // Attach click handlers to product cards to save details and open product page
+        (function(){
+            function getText(el, selector){
+                var s = el.querySelector(selector);
+                return s ? s.textContent.trim() : '';
+            }
+
+            var cards = document.querySelectorAll('.product-card');
+            cards.forEach(function(card, idx){
+                var btn = card.querySelector('.primary-btn');
+                // build product object from card DOM
+                function buildProduct(){
+                    var img = card.querySelector('.product-image img');
+                    var title = getText(card, '.product-title');
+                    var oldPrice = getText(card, '.old-price');
+                    var newPrice = getText(card, '.new-price');
+                    var sizes = Array.from(card.querySelectorAll('.sizes .size-btn')).map(function(b){ return b.textContent.trim(); });
+                    return {
+                        id: 'p' + (idx+1),
+                        title: title,
+                        image: img ? img.getAttribute('src') : '',
+                        alt: img ? img.getAttribute('alt') : '',
+                        oldPrice: oldPrice,
+                        newPrice: newPrice,
+                        sizes: sizes,
+                        description: ''
+                    };
+                }
+
+                function gotoDetail(){
+                    try{
+                        var prod = buildProduct();
+                        localStorage.setItem('selectedProduct', JSON.stringify(prod));
+                    }catch(e){ console.error(e); }
+                    window.location.href = 'product.html';
+                }
+
+                if(btn) btn.addEventListener('click', gotoDetail);
+                // also make clicking image or title open details
+                var img = card.querySelector('.product-image');
+                if(img) img.style.cursor = 'pointer', img.addEventListener('click', gotoDetail);
+                var titleEl = card.querySelector('.product-title');
+                if(titleEl) titleEl.style.cursor = 'pointer', titleEl.addEventListener('click', gotoDetail);
+            });
+        })();
+    </script>
+
     <!-- Cookie Consent Banner -->
     <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie consent" aria-live="polite">
         <div class="cookie-inner">

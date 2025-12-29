@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cart - UniCloth</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="main-header__inner">
+      <div class="logo">UniCloth</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="new-in.html">New In</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrapper" style="padding-top:28px;">
+    <a href="new-in.html" class="back-link">← Continue shopping</a>
+    <h1 style="margin:12px 0 18px;">Your Cart</h1>
+
+    <section id="cart-list" style="display:block;">
+      <!-- items will render here -->
+    </section>
+
+    <div id="cart-summary" style="margin-top:18px; text-align:right; font-weight:700; font-size:1.1rem;"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrapper footer-inner">
+      <p class="footer-copy">Copyright © 2025 Topu | Proudly Made in Bangladesh</p>
+    </div>
+  </footer>
+
+  <script>
+    function getCart(){ try{ return JSON.parse(localStorage.getItem('cart')||'[]'); }catch(e){return [];} }
+    function saveCart(c){ localStorage.setItem('cart', JSON.stringify(c)); window.updateCartCount && window.updateCartCount(); render(); }
+
+    function formatPrice(p){ return p || ''; }
+
+    function render(){
+      var list = document.getElementById('cart-list'); list.innerHTML = '';
+      var cart = getCart();
+      if(!cart.length){ list.innerHTML = '<p>Your cart is empty.</p>'; document.getElementById('cart-summary').textContent = ''; return; }
+
+      cart.forEach(function(item, idx){
+        var row = document.createElement('div');
+        row.style.cssText = 'display:flex;gap:12px;align-items:center;padding:12px;border:1px solid var(--border);border-radius:8px;margin-bottom:10px;background:#fff;';
+
+        var img = document.createElement('img'); img.src = item.image || ''; img.alt = item.alt || item.title || ''; img.style.width = '96px'; img.style.height = '96px'; img.style.objectFit = 'cover'; img.style.borderRadius = '6px';
+        var info = document.createElement('div'); info.style.flex = '1';
+        var title = document.createElement('div'); title.textContent = item.title + (item.size ? (' — ' + item.size) : ''); title.style.fontWeight = '700';
+        var price = document.createElement('div'); price.textContent = formatPrice(item.newPrice || item.oldPrice || ''); price.style.color = 'var(--muted)';
+        info.appendChild(title); info.appendChild(price);
+
+        var controls = document.createElement('div'); controls.style.display='flex'; controls.style.gap='8px'; controls.style.alignItems='center';
+        var dec = document.createElement('button'); dec.textContent='−'; dec.style.padding='6px 10px';
+        var qty = document.createElement('span'); qty.textContent = item.qty || 1; qty.style.minWidth='28px'; qty.style.textAlign='center';
+        var inc = document.createElement('button'); inc.textContent='+'; inc.style.padding='6px 10px';
+        var rem = document.createElement('button'); rem.textContent='Remove'; rem.style.marginLeft='12px'; rem.style.background='transparent'; rem.style.color='var(--accent)'; rem.style.border='none'; rem.style.cursor='pointer';
+
+        dec.addEventListener('click', function(){ if(item.qty>1){ item.qty--; saveCart(cart); } else { cart.splice(idx,1); saveCart(cart); } });
+        inc.addEventListener('click', function(){ item.qty = (item.qty||0) + 1; saveCart(cart); });
+        rem.addEventListener('click', function(){ cart.splice(idx,1); saveCart(cart); });
+
+        controls.appendChild(dec); controls.appendChild(qty); controls.appendChild(inc); controls.appendChild(rem);
+
+        row.appendChild(img); row.appendChild(info); row.appendChild(controls);
+        list.appendChild(row);
+      });
+
+      // summary
+      var totalQty = cart.reduce(function(s,i){return s + (i.qty||0);},0);
+      var summary = document.getElementById('cart-summary'); summary.textContent = 'Items: ' + totalQty;
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){ render(); });
+  </script>
+</body>
+</html>
